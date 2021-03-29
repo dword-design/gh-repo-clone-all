@@ -9,6 +9,7 @@ export default tester(
   {
     async branch() {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -38,6 +39,7 @@ export default tester(
     },
     cwd: async () => {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -65,6 +67,7 @@ export default tester(
     },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -85,6 +88,7 @@ export default tester(
     },
     'repository not found': async function () {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => 'foo',
       })
       expect(await self()).toMatchSnapshot(this)

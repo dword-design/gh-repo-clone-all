@@ -68,8 +68,16 @@ First of all, you need to have [GitHub CLI](https://cli.github.com/manual/) inst
 Now we can run the command like this:
 
 ```bash
-gh-repo-clone-all [directory] [options] [gh repo list options]
+Usage: gh-repo-clone-all [directory] [options] [gh repo list options] 
+
+You can pass the supported options through from gh repo list. The options below are additional.
+
+Options:
+  -b, --branch <branch>  The branch to checkout
+  -h, --help               display help for command
 ```
+
+See the [gh repo list docs](https://cli.github.com/manual/gh_repo_list) for details about the filtering options.
 
 ## Cloning
 
@@ -115,6 +123,41 @@ $ gh-repo-clone-all my-repos --branch renovate/lock-file-maintenance
 ```
 
 Note that if a branch cannot be checked out by a repository, the repository will not be cloned.
+
+## Filtering
+
+You can use the filtering options from [gh repo list](https://cli.github.com/manual/gh_repo_list) to filter the repositories you would like to clone:
+
+```bash
+
+# Clone only archived repositories
+$ gh-repo-clone-all --archived
+
+# Clone only forks
+$ gh-repo-clone-all --fork
+
+# Clone only repositories of a language
+$ gh-repo-clone-all --language lang
+
+# Clone up to a limit
+$ gh-repo-clone-all --limit x
+
+# Do not clone archived repositories
+$ gh-repo-clone-all --no-archived
+
+# Clone only private repositories
+$ gh-repo-clone-all --source
+
+# Clone only public repositories
+$ gh-repo-clone-all --public
+
+# Clone only non-forks
+$ gh-repo-clone-all --source
+```
+
+## The Git Protocol
+
+`gh-repo-clone-all` uses the protocol defined in GitHub CLI to clone repositories. You can find out which via `gh config get git_protocol`, and you can set it via `gh config set git_protocol [ssh,https]`.
 
 <!-- LICENSE/ -->
 ## Contribute
