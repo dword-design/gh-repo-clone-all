@@ -3,6 +3,8 @@ import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
+import P from 'path'
+import which from 'which'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
 /* const pathDelimiter = process.platform === 'win32' ? ';' : ':'
@@ -79,9 +81,8 @@ export default tester(
       console.log('gh missing test start')
 
       // console.log(process.env.PATH)
-      const path = 'foo:/home/gitpod/.nvm/versions/node/v14.16.0/bin' // await getModifiedPath()
+      const path = `foo:${P.dirname(await which('node'))}` // await getModifiedPath()
       console.log(path)
-      console.log(await execa.command('which node', { all: true }))
       await expect(
         execa(require.resolve('./cli'), [], {
           env: { FOO: 'bar', PATH: path },
