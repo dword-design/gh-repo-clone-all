@@ -42,14 +42,14 @@
     "fs-extra": "^9.1.0",
     "make-cli": "^1.2.0",
     "parse-pkg-name": "^2.0.0",
-    "std-env": "^2.3.0",
-    "which": "^2.0.2"
+    "std-env": "^2.3.0"
   },
   "devDependencies": {
     "@dword-design/base": "^7.10.7",
     "@dword-design/proxyquire": "^1.0.8",
     "@dword-design/tester": "^1.2.3",
     "globby": "^11.0.3",
+    "which": "^2.0.2",
     "with-local-tmp-dir": "^2.2.17"
   },
   "publishConfig": {

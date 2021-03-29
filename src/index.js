@@ -4,7 +4,6 @@ import execa from 'execa'
 import { ensureDir, exists } from 'fs-extra'
 import P from 'path'
 import stdEnv from 'std-env'
-import which from 'which'
 
 import ghGitProtocol from './gh-git-protocol'
 import ghRepoList from './gh-repo-list'
@@ -17,7 +16,6 @@ export default async options => {
   options.directory = P.resolve(options.directory || '.')
   if (process.platform === 'win32') {
     console.log('In self:')
-    console.log(await which('gh'))
     console.log(process.env.PATH)
   }
   try {
