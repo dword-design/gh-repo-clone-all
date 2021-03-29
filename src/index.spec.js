@@ -80,7 +80,7 @@ export default tester(
       // process.env = { ...process.env, PATH: await getModifiedPath() }
       console.log('gh missing test start')
       // console.log(process.env.PATH)
-      console.log(Object.keys(process.env))
+      console.log(JSON.stringify(Object.keys(process.env)))
 
       const path = `foo${pathDelimiter}${P.dirname(await which('node'))}` // await getModifiedPath()
       console.log(path)

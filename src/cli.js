@@ -10,7 +10,7 @@ import api from '.'
 
 // if (process.platform === 'win32') {
 console.log('In self:')
-console.log(Object.keys(process.env))
+console.log(JSON.stringify(Object.keys(process.env)))
 console.log(process.env.PATH)
 console.log(process.env.FOO)
 
