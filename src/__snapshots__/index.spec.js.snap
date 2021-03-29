@@ -7,7 +7,22 @@ Your branch is up to date with 'origin/foo'.
 nothing to commit, working tree clean"
 `;
 
+exports[`index branch 2`] = `
+"On branch foo
+Your branch is up to date with 'origin/foo'.
+
+nothing to commit, working tree clean"
+`;
+
 exports[`index non-existing branch 1`] = `
+Array [
+  "Command failed with exit code 128: git clone https://github.com/dword-design/gh-repo-clone-all-test1.git --branch bar
+Cloning into 'gh-repo-clone-all-test1'...
+fatal: Remote branch bar not found in upstream origin",
+]
+`;
+
+exports[`index non-existing branch 2`] = `
 "On branch bar
 Your branch is up to date with 'origin/bar'.
 
