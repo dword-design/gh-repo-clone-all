@@ -46,7 +46,7 @@
 <!-- /BADGES -->
 
 <!-- DESCRIPTION/ -->
-Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.
+Addition to GitHub CLI that clones all public and private repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.
 <!-- /DESCRIPTION -->
 
 <!-- INSTALL/ -->
