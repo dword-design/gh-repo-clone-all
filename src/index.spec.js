@@ -78,7 +78,7 @@ export default tester(
     'gh missing': async () => {
       // const self = proxyquire('.', {})
       // process.env = { ...process.env, PATH: await getModifiedPath() }
-      console.log('In test:')
+      console.log('gh missing test start')
       // console.log(process.env.PATH)
       const path = await getModifiedPath()
       console.log(path)
