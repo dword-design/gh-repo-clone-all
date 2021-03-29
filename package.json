@@ -16,6 +16,9 @@
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
   "main": "dist/index.js",
+  "bin": {
+    "gh-repo-clone-all": "./dist/cli.js"
+  },
   "files": [
     "dist"
   ],
