@@ -2,10 +2,14 @@
 
 import { slice } from '@dword-design/functions'
 import makeCli from 'make-cli'
+import parsePkgName from 'parse-pkg-name'
+
+import packageConfig from '@/package.json'
 
 import api from '.'
 import protocols from './protocols.json'
 
+const packageName = parsePkgName(packageConfig.name).name
 makeCli({
   action: (directory, options, command) =>
     api({
@@ -19,6 +23,7 @@ makeCli({
     }),
   allowUnknownOption: true,
   arguments: '[directory]',
+  name: `${packageName} [directory] [options] [gh repo list options]`,
   options: [
     {
       choices: protocols,
@@ -31,4 +36,6 @@ makeCli({
       name: '-b, --branch <branch>',
     },
   ],
+  usage:
+    '\n\nYou can pass the supported options from gh repo list through. The options below are additional.',
 })
