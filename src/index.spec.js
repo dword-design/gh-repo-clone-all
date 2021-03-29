@@ -1,11 +1,4 @@
-import {
-  consoleLog,
-  endent,
-  join,
-  property,
-  pullAll,
-  split,
-} from '@dword-design/functions'
+import { endent, join, property, pullAll, split } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -21,7 +14,6 @@ const getModifiedPath = async () =>
   |> split(pathDelimiter)
   |> pullAll([P.dirname(which('gh') |> await), '/bin'])
   |> join(pathDelimiter)
-  |> consoleLog
 
 export default tester(
   {
@@ -86,6 +78,8 @@ export default tester(
     'gh missing': async () => {
       const self = proxyquire('.', {})
       process.env = { ...process.env, PATH: await getModifiedPath() }
+      console.log('In test:')
+      console.log(process.env.PATH)
       await expect(self()).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )

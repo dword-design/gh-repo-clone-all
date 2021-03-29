@@ -16,6 +16,7 @@ export default async options => {
   }
   options.directory = P.resolve(options.directory || '.')
   if (process.platform === 'win32') {
+    console.log('In self:')
     console.log(await which('gh'))
     console.log(process.env.PATH)
   }
