@@ -1,0 +1,49 @@
+{
+  "name": "gh-repo-clone-all",
+  "version": "1.0.0",
+  "description": "Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.",
+  "keywords": [
+    "cli",
+    "gh",
+    "github",
+    "list",
+    "repo",
+    "repos",
+    "repositories"
+  ],
+  "repository": "dword-design/gh-repo-clone-all",
+  "funding": "https://www.buymeacoffee.com/dword",
+  "license": "MIT",
+  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "checkUnknownFiles": "base checkUnknownFiles",
+    "commit": "base commit",
+    "dev": "base dev",
+    "lint": "base lint",
+    "prepare": "base prepare",
+    "prepublishOnly": "base prepublishOnly",
+    "test": "base test"
+  },
+  "dependencies": {
+    "@dword-design/functions": "^3.0.0",
+    "empty-dir": "^2.0.0",
+    "execa": "^5.0.0",
+    "fs-extra": "^9.1.0",
+    "make-cli": "^1.2.0",
+    "std-env": "^2.3.0"
+  },
+  "devDependencies": {
+    "@dword-design/base": "^7.10.7",
+    "@dword-design/proxyquire": "^1.0.8",
+    "@dword-design/tester": "^1.2.3",
+    "globby": "^11.0.3",
+    "with-local-tmp-dir": "^2.2.17"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

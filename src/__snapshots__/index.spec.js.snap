@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index branch 1`] = `
+"On branch foo
+Your branch is up to date with 'origin/foo'.
+
+nothing to commit, working tree clean"
+`;
+
+exports[`index non-existing branch 1`] = `
+"On branch bar
+Your branch is up to date with 'origin/bar'.
+
+nothing to commit, working tree clean"
+`;
+
+exports[`index repository not found 1`] = `
+Array [
+  "Command failed with exit code 128: git clone https://github.com/foo.git
+Cloning into 'foo'...
+remote: Not Found
+fatal: repository 'https://github.com/foo.git/' not found",
+]
+`;
