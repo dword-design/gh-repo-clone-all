@@ -10,8 +10,7 @@ import api from '.'
 
 // if (process.platform === 'win32') {
 console.log('In self:')
-console.log(process.env.FOO)
-console.log(process.env.PATH)
+console.log(process.env)
 
 // }
 const packageName = parsePkgName(packageConfig.name).name
