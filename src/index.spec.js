@@ -1,4 +1,4 @@
-import { endent, join, property, pull, split } from '@dword-design/functions'
+import { endent, join, property, pullAll, split } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -10,7 +10,7 @@ const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 const getModifiedPath = () =>
   process.env.PATH
   |> split(pathDelimiter)
-  |> pull('/usr/local/bin')
+  |> pullAll(['/usr/local/bin', '/usr/bin'])
   |> join(pathDelimiter)
 
 export default tester(
