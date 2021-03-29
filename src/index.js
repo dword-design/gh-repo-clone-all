@@ -22,6 +22,9 @@ export default async options => {
       }`
     )
   }
+  if (process.platform === 'win32') {
+    await execa.command('which gh')
+  }
   try {
     await execa.command('gh version')
   } catch {
