@@ -80,7 +80,7 @@ export default tester(
       // process.env = { ...process.env, PATH: await getModifiedPath() }
       console.log('gh missing test start')
       // console.log(process.env.PATH)
-      const path = await getModifiedPath()
+      const path = 'foo'//await getModifiedPath()
       console.log(path)
       await expect(
         execa(
