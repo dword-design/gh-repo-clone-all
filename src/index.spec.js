@@ -1,4 +1,11 @@
-import { endent, join, property, pullAll, split } from '@dword-design/functions'
+import {
+  consoleLog,
+  endent,
+  join,
+  property,
+  pullAll,
+  split,
+} from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -9,16 +16,12 @@ import withLocalTmpDir from 'with-local-tmp-dir'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-const getModifiedPath = async () => {
-  console.log(P.dirname(which('gh') |> await))
-
-  return (
-    process.env.PATH
-    |> split(pathDelimiter)
-    |> pullAll([P.dirname(which('gh') |> await), '/bin'])
-    |> join(pathDelimiter)
-  )
-}
+const getModifiedPath = async () =>
+  process.env.PATH
+  |> split(pathDelimiter)
+  |> pullAll([P.dirname(which('gh') |> await), '/bin'])
+  |> consoleLog
+  |> join(pathDelimiter)
 
 export default tester(
   {
