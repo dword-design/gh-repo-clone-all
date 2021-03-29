@@ -7,9 +7,9 @@ import P from 'path'
 import which from 'which'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
-/* const pathDelimiter = process.platform === 'win32' ? ';' : ':'
+const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-const getModifiedPath = async () =>
+/*const getModifiedPath = async () =>
   process.env.PATH
   |> split(pathDelimiter)
   |> pullAll([P.dirname(which('gh') |> await), '/bin'])
@@ -81,7 +81,7 @@ export default tester(
       console.log('gh missing test start')
 
       // console.log(process.env.PATH)
-      const path = `foo:${P.dirname(await which('node'))}` // await getModifiedPath()
+      const path = `foo${pathDelimiter}${P.dirname(await which('node'))}` // await getModifiedPath()
       console.log(path)
       require('child_process').spawnSync(require.resolve('./cli'), [], {
         env: { ...process.env, FOO: 'bar', PATH: path },
