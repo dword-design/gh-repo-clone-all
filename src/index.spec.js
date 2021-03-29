@@ -4,21 +4,16 @@ import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
 import P from 'path'
+import which from 'which'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-const getModifiedPath = async () => {
-  const ghPath =
-    (await execa.command('which gh', { all: true })) |> await |> property('all')
-
-  return (
-    process.env.PATH
-    |> split(pathDelimiter)
-    |> pullAll([P.dirname(ghPath), '/bin'])
-    |> join(pathDelimiter)
-  )
-}
+const getModifiedPath = async () =>
+  process.env.PATH
+  |> split(pathDelimiter)
+  |> pullAll([P.dirname(which('gh') |> await), '/bin'])
+  |> join(pathDelimiter)
 
 export default tester(
   {
