@@ -81,6 +81,7 @@ export default tester(
       // console.log(process.env.PATH)
       const path = 'foo:/home/gitpod/.nvm/versions/node/v14.16.0/bin' // await getModifiedPath()
       console.log(path)
+      console.log(await execa.command('which node', { all: true }))
       await expect(
         execa(require.resolve('./cli'), [], {
           env: { FOO: 'bar', PATH: path },
