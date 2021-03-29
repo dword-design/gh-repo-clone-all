@@ -3,23 +3,28 @@ import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
-import withLocalTmpDir from 'with-local-tmp-dir'
 import P from 'path'
+import withLocalTmpDir from 'with-local-tmp-dir'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
 const getModifiedPath = async () => {
-  const ghPath = await execa.command('which gh', { all: true }) |> await |> property('all')
-  return process.env.PATH
-  |> split(pathDelimiter)
-  |> pullAll([P.dirname(ghPath), '/bin'])
-  |> join(pathDelimiter)
+  const ghPath =
+    (await execa.command('which gh', { all: true })) |> await |> property('all')
+
+  return (
+    process.env.PATH
+    |> split(pathDelimiter)
+    |> pullAll([P.dirname(ghPath), '/bin'])
+    |> join(pathDelimiter)
+  )
 }
 
 export default tester(
   {
     async branch() {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -49,6 +54,7 @@ export default tester(
     },
     cwd: async () => {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -83,6 +89,7 @@ export default tester(
     },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => endent`
         dword-design/gh-repo-clone-all-test1
         dword-design/gh-repo-clone-all-test2
@@ -103,6 +110,7 @@ export default tester(
     },
     'repository not found': async function () {
       const self = proxyquire('.', {
+        './gh-git-protocol': () => 'https',
         './gh-repo-list': () => 'foo',
       })
       expect(await self()).toMatchSnapshot(this)

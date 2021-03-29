@@ -7,7 +7,6 @@ import parsePkgName from 'parse-pkg-name'
 import packageConfig from '@/package.json'
 
 import api from '.'
-import protocols from './protocols.json'
 
 const packageName = parsePkgName(packageConfig.name).name
 makeCli({
@@ -26,16 +25,10 @@ makeCli({
   name: `${packageName} [directory] [options] [gh repo list options]`,
   options: [
     {
-      choices: protocols,
-      defaultValue: 'https',
-      description: 'The protocol to use',
-      name: '-p, --protocol <protocol>',
-    },
-    {
-      description: 'The branch to checkout',
+      description: 'the branch to checkout',
       name: '-b, --branch <branch>',
     },
   ],
   usage:
-    '\n\nYou can pass the supported options from gh repo list through. The options below are additional.',
+    '\n\nYou can pass the supported options through from gh repo list. The options below are additional.',
 })

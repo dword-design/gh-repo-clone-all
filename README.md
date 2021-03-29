@@ -46,7 +46,7 @@
 <!-- /BADGES -->
 
 <!-- DESCRIPTION/ -->
-Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.
+Addition to GitHub CLI that clones all public and private repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.
 <!-- /DESCRIPTION -->
 
 <!-- INSTALL/ -->
@@ -54,12 +54,110 @@ Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its 
 
 ```bash
 # npm
-$ npm install gh-repo-clone-all
+$ npm install -g gh-repo-clone-all
 
 # Yarn
-$ yarn add gh-repo-clone-all
+$ yarn global add gh-repo-clone-all
 ```
 <!-- /INSTALL -->
+
+## Usage
+
+First of all, you need to have [GitHub CLI](https://cli.github.com/manual/) installed. You can find out by running `gh version`. Also make sure that you are logged in so that `gh-repo-clone-all` can fetch the repository list. You can find out by running `gh auth status`.
+
+Now we can run the command like this:
+
+```bash
+Usage: gh-repo-clone-all [directory] [options] [gh repo list options] 
+
+You can pass the supported options through from gh repo list. The options below are additional.
+
+Options:
+  -b, --branch <branch>  The branch to checkout
+  -h, --help               display help for command
+```
+
+See the [gh repo list docs](https://cli.github.com/manual/gh_repo_list) for details about the filtering options.
+
+## Cloning
+
+The simplest case is to just clone into the current directory (which has to be empty):
+
+```bash
+$ gh-repo-clone-all
+
+Cloning into /Users/foobar/repos …
+
+Successfully cloned john-doe/repo1.
+Successfully cloned john-doe/repo2.
+Successfully cloned john-doe/repo3.
+Successfully cloned john-doe/repo4.
+
+Done!
+```
+
+Usually you will want to provide a directory name, which is then created:
+
+```bash
+$ gh-repo-clone-all my-repos
+```
+
+`gh repo list` has a default limit of 30, which is rather low. So let's put it up to clone more repositories:
+
+```bash
+$ gh-repo-clone-all my-repos --limit 100
+```
+
+You can actually just put a very high limit to clone everything:
+
+```hash
+$ gh-repo-clone-all my-repos --limit 9999
+```
+
+## Checking Out a Branch
+
+Instead of the default branch, you can checkout a specific branch like this:
+
+```bash
+$ gh-repo-clone-all my-repos --branch renovate/lock-file-maintenance
+```
+
+Note that if a branch cannot be checked out by a repository, the repository will not be cloned.
+
+## Filtering
+
+You can use the filtering options from [gh repo list](https://cli.github.com/manual/gh_repo_list) to filter the repositories you would like to clone:
+
+```bash
+
+# Clone only archived repositories
+$ gh-repo-clone-all --archived
+
+# Clone only forks
+$ gh-repo-clone-all --fork
+
+# Clone only repositories of a language
+$ gh-repo-clone-all --language lang
+
+# Clone up to a limit
+$ gh-repo-clone-all --limit x
+
+# Do not clone archived repositories
+$ gh-repo-clone-all --no-archived
+
+# Clone only private repositories
+$ gh-repo-clone-all --source
+
+# Clone only public repositories
+$ gh-repo-clone-all --public
+
+# Clone only non-forks
+$ gh-repo-clone-all --source
+```
+
+## The Git Protocol
+
+`gh-repo-clone-all` uses the protocol defined in GitHub CLI to clone repositories. You can find out which via `gh config get git_protocol`, and you can set it via `gh config set git_protocol [ssh,https]`.
 
 <!-- LICENSE/ -->
 ## Contribute
