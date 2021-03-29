@@ -14,6 +14,10 @@ export default async options => {
     ...options,
   }
   options.directory = P.resolve(options.directory || '.')
+  if (process.platform === 'win32') {
+    await execa.command('which gh', { stdio: 'inherit' })
+    console.log(process.env.PATH)
+  }
   try {
     await execa.command('gh version')
   } catch {
