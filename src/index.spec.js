@@ -82,7 +82,7 @@ export default tester(
       // console.log(process.env.PATH)
       await expect(
         execa(
-          require.resolve('./cli'), { stdio: 'inherit', env: { PATH: await getModifiedPath() } }
+          require.resolve('./cli'), { env: { PATH: await getModifiedPath() } }
         )
       ).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
