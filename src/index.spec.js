@@ -1,9 +1,17 @@
-import { endent, property } from '@dword-design/functions'
+import { endent, join, property, pull, split } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
 import withLocalTmpDir from 'with-local-tmp-dir'
+
+const pathDelimiter = process.platform === 'win32' ? ';' : ':'
+
+const getModifiedPath = () =>
+  process.env.PATH
+  |> split(pathDelimiter)
+  |> pull('/usr/local/bin')
+  |> join(pathDelimiter)
 
 export default tester(
   {
@@ -63,6 +71,13 @@ export default tester(
         })
       ).toEqual(['.git'])
     },
+    'gh missing': async () => {
+      const self = proxyquire('.', {})
+      process.env = { ...process.env, PATH: getModifiedPath() }
+      await expect(self()).rejects.toThrow(
+        'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
+      )
+    },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
         './gh-repo-list': () => endent`
@@ -91,6 +106,14 @@ export default tester(
     },
   },
   [
+    {
+      afterEach() {
+        process.env = this.previousEnv
+      },
+      beforeEach() {
+        this.previousEnv = process.env
+      },
+    },
     {
       transform: test =>
         function () {

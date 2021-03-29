@@ -22,6 +22,13 @@ export default async options => {
       }`
     )
   }
+  try {
+    await execa.command('gh version')
+  } catch {
+    throw new Error(
+      'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
+    )
+  }
 
   const output = await ghRepoList(options.ghArgs)
 
