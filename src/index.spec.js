@@ -76,15 +76,19 @@ export default tester(
       ).toEqual(['.git'])
     },
     'gh missing': async () => {
-      const self = proxyquire('.', {})
-      process.env = { ...process.env, PATH: await getModifiedPath() }
-      console.log('In test:')
-      console.log(process.env.PATH)
-      await expect(self()).rejects.toThrow(
+      // const self = proxyquire('.', {})
+      // process.env = { ...process.env, PATH: await getModifiedPath() }
+      // console.log('In test:')
+      // console.log(process.env.PATH)
+      await expect(
+        execa(
+          require.resolve('./cli', { env: { PATH: await getModifiedPath() } })
+        )
+      ).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )
-      console.log('After test:')
-      console.log(process.env.PATH)
+      // console.log('After test:')
+      // console.log(process.env.PATH)
     },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
