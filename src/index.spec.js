@@ -1,4 +1,11 @@
-import { endent, omit, property } from '@dword-design/functions'
+import {
+  endent,
+  join,
+  omit,
+  property,
+  pullAll,
+  split,
+} from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -9,11 +16,11 @@ import withLocalTmpDir from 'with-local-tmp-dir'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-/* const getModifiedPath = async () =>
+const getModifiedPath = async () =>
   process.env.PATH
   |> split(pathDelimiter)
   |> pullAll([P.dirname(which('gh') |> await), '/bin'])
-  |> join(pathDelimiter) */
+  |> join(pathDelimiter)
 
 export default tester(
   {
@@ -76,25 +83,13 @@ export default tester(
       ).toEqual(['.git'])
     },
     'gh missing': async () => {
-      // const self = proxyquire('.', {})
-      // process.env = { ...process.env, PATH: await getModifiedPath() }
-      console.log('gh missing test start')
-      // console.log(process.env.PATH)
+      const self = proxyquire('.', {})
+      process.env =
+        { ...process.env, PATH: await getModifiedPath() } |> omit(['Path'])
       console.log(JSON.stringify(Object.keys(process.env)))
-
-      const path = `foo${pathDelimiter}${P.dirname(await which('node'))}` // await getModifiedPath()
-      console.log(path)
-      console.log(
-        require('child_process').spawnSync('node', [require.resolve('./cli')], {
-          env: { ...process.env, FOO: 'bar', PATH: path } |> omit(['Path']),
-          stdio: 'inherit',
-        })
+      await expect(self()).rejects.toThrow(
+        'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )
-      /* .rejects.toThrow(
-        ',,' // 'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
-      ) */
-      // console.log('After test:')
-      // console.log(process.env.PATH)
     },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
