@@ -9,7 +9,7 @@ import P from 'path'
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
 const getModifiedPath = async () => {
-  const ghPath = await execa.command('which gh', { all: true })
+  const ghPath = await execa.command('which gh', { all: true }) |> await |> property('all')
   return process.env.PATH
   |> split(pathDelimiter)
   |> pull(P.dirname(ghPath))
