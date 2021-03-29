@@ -1,15 +1,19 @@
 {
   "name": "gh-repo-clone-all",
   "version": "1.0.1",
-  "description": "Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.",
+  "description": "Addition to GitHub CLI that clones all public and private repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.",
   "keywords": [
+    "access",
     "cli",
     "gh",
     "github",
     "list",
+    "private",
+    "public",
     "repo",
     "repos",
-    "repositories"
+    "repositories",
+    "token"
   ],
   "repository": "dword-design/gh-repo-clone-all",
   "funding": "https://www.buymeacoffee.com/dword",
