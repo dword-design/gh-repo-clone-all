@@ -79,10 +79,13 @@ export default tester(
       console.log('gh missing test start')
 
       // console.log(process.env.PATH)
-      const path = 'foo' // await getModifiedPath()
+      const path = 'foo:/home/gitpod/.nvm/versions/node/v14.16.0/bin' // await getModifiedPath()
       console.log(path)
       await expect(
-        execa(require.resolve('./cli'), { env: { PATH: path } })
+        execa(require.resolve('./cli'), [], {
+          env: { FOO: 'bar', PATH: path },
+          stdout: 'inherit',
+        })
       ).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )

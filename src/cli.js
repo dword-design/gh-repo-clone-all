@@ -8,6 +8,12 @@ import packageConfig from '@/package.json'
 
 import api from '.'
 
+// if (process.platform === 'win32') {
+console.log('In self:')
+console.log(process.env.FOO)
+console.log(process.env.PATH)
+
+// }
 const packageName = parsePkgName(packageConfig.name).name
 makeCli({
   action: (directory, options, command) =>
