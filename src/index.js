@@ -22,6 +22,7 @@ export default async options => {
       }`
     )
   }
+  await execa.command('which gh')
   try {
     await execa.command('gh version')
   } catch {
