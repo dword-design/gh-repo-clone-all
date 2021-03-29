@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.4...v1.0.5) (2021-03-29)
+
+
+### Bug Fixes
+
+* detect missing gh ([#2](https://github.com/dword-design/gh-repo-clone-all/issues/2)) ([6b42b40](https://github.com/dword-design/gh-repo-clone-all/commit/6b42b402982cbe5086f70bf1bec23af7f349c568))
+
 ## [1.0.4](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.3...v1.0.4) (2021-03-29)
 
 
