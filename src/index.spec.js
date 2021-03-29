@@ -20,8 +20,8 @@ const getModifiedPath = async () =>
   process.env.PATH
   |> split(pathDelimiter)
   |> pullAll([P.dirname(which('gh') |> await), '/bin'])
-  |> consoleLog
   |> join(pathDelimiter)
+  |> consoleLog
 
 export default tester(
   {
