@@ -1,4 +1,4 @@
-import { endent, join, property, pull, split } from '@dword-design/functions'
+import { endent, join, property, pullAll, split } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -12,7 +12,7 @@ const getModifiedPath = async () => {
   const ghPath = await execa.command('which gh', { all: true }) |> await |> property('all')
   return process.env.PATH
   |> split(pathDelimiter)
-  |> pull(P.dirname(ghPath))
+  |> pullAll([P.dirname(ghPath), '/bin'])
   |> join(pathDelimiter)
 }
 
