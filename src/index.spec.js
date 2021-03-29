@@ -10,7 +10,7 @@ const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 const getModifiedPath = () =>
   process.env.PATH
   |> split(pathDelimiter)
-  |> pullAll(['/usr/local/bin', '/usr/bin'])
+  |> pullAll(['/usr/local/bin', '/usr/bin', '/bin'])
   |> join(pathDelimiter)
 
 export default tester(
