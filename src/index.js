@@ -22,7 +22,7 @@ export default async options => {
       }`
     )
   }
-  await execa.command('which gh')
+  await execa.command('which gh', { stdio: 'inherit' })
   try {
     await execa.command('gh version')
   } catch {
