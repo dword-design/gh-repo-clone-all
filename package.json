@@ -1,6 +1,6 @@
 {
   "name": "gh-repo-clone-all",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Addition to GitHub CLI that clones all repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.",
   "keywords": [
     "cli",
@@ -16,6 +16,9 @@
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
   "main": "dist/index.js",
+  "bin": {
+    "gh-repo-clone-all": "./dist/cli.js"
+  },
   "files": [
     "dist"
   ],
@@ -34,6 +37,7 @@
     "execa": "^5.0.0",
     "fs-extra": "^9.1.0",
     "make-cli": "^1.2.0",
+    "parse-pkg-name": "^2.0.0",
     "std-env": "^2.3.0"
   },
   "devDependencies": {
