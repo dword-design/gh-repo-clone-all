@@ -9,7 +9,7 @@ import withLocalTmpDir from 'with-local-tmp-dir'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-/*const getModifiedPath = async () =>
+/* const getModifiedPath = async () =>
   process.env.PATH
   |> split(pathDelimiter)
   |> pullAll([P.dirname(which('gh') |> await), '/bin'])
@@ -79,14 +79,17 @@ export default tester(
       // const self = proxyquire('.', {})
       // process.env = { ...process.env, PATH: await getModifiedPath() }
       console.log('gh missing test start')
-
       // console.log(process.env.PATH)
+      console.log(Object.keys(process.env))
+
       const path = `foo${pathDelimiter}${P.dirname(await which('node'))}` // await getModifiedPath()
       console.log(path)
-      console.log(require('child_process').spawnSync('node', [require.resolve('./cli')], {
-        env: { ...process.env, FOO: 'bar', PATH: path },
-        stdio: 'inherit',
-      }))
+      console.log(
+        require('child_process').spawnSync('node', [require.resolve('./cli')], {
+          env: { ...process.env, FOO: 'bar', PATH: path },
+          stdio: 'inherit',
+        })
+      )
       /* .rejects.toThrow(
         ',,' // 'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       ) */
