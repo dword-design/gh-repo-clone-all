@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.2...v1.0.3) (2021-03-29)
+
+
+### Bug Fixes
+
+* documentation ([ef32c79](https://github.com/dword-design/gh-repo-clone-all/commit/ef32c79ea2b1edb82579969bc90d436f1c1af50d))
+* update config files ([addd266](https://github.com/dword-design/gh-repo-clone-all/commit/addd266a9e2261e10ce905a2ea4d37c2a669d1a6))
+
 ## [1.0.2](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.1...v1.0.2) (2021-03-29)
 
 
