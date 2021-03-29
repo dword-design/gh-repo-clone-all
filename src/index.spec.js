@@ -83,7 +83,7 @@ export default tester(
       // console.log(process.env.PATH)
       const path = `foo${pathDelimiter}${P.dirname(await which('node'))}` // await getModifiedPath()
       console.log(path)
-      console.log(require('child_process').spawnSync(require.resolve('./cli'), [], {
+      console.log(require('child_process').spawnSync('node', [require.resolve('./cli')], {
         env: { ...process.env, FOO: 'bar', PATH: path },
         stdio: 'inherit',
       }))
