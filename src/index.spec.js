@@ -1,17 +1,20 @@
-import { endent, join, property, pullAll, split } from '@dword-design/functions'
+import { endent, join, property, pull, split } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
 import withLocalTmpDir from 'with-local-tmp-dir'
+import P from 'path'
 
 const pathDelimiter = process.platform === 'win32' ? ';' : ':'
 
-const getModifiedPath = () =>
-  process.env.PATH
+const getModifiedPath = async () => {
+  const ghPath = await execa.command('which gh', { all: true })
+  return process.env.PATH
   |> split(pathDelimiter)
-  |> pullAll(['/usr/local/bin', '/usr/bin', '/bin'])
+  |> pull(P.dirname(ghPath))
   |> join(pathDelimiter)
+}
 
 export default tester(
   {
@@ -73,7 +76,7 @@ export default tester(
     },
     'gh missing': async () => {
       const self = proxyquire('.', {})
-      process.env = { ...process.env, PATH: getModifiedPath() }
+      process.env = { ...process.env, PATH: await getModifiedPath() }
       await expect(self()).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )
