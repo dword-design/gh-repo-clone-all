@@ -1,9 +1,26 @@
-import { endent, property } from '@dword-design/functions'
+import {
+  endent,
+  join,
+  omit,
+  property,
+  pullAll,
+  split,
+} from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
 import globby from 'globby'
+import P from 'path'
+import which from 'which'
 import withLocalTmpDir from 'with-local-tmp-dir'
+
+const pathDelimiter = process.platform === 'win32' ? ';' : ':'
+
+const getModifiedPath = async () =>
+  process.env.PATH
+  |> split(pathDelimiter)
+  |> pullAll([P.dirname(which('gh') |> await), '/bin'])
+  |> join(pathDelimiter)
 
 export default tester(
   {
@@ -65,6 +82,15 @@ export default tester(
         })
       ).toEqual(['.git'])
     },
+    'gh missing': async () => {
+      const self = proxyquire('.', {})
+      // https://github.com/nodejs/node/issues/34667
+      process.env =
+        { ...process.env, PATH: await getModifiedPath() } |> omit(['Path'])
+      await expect(self()).rejects.toThrow(
+        'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
+      )
+    },
     'non-existing branch': async function () {
       const self = proxyquire('.', {
         './gh-git-protocol': () => 'https',
@@ -95,6 +121,14 @@ export default tester(
     },
   },
   [
+    {
+      afterEach() {
+        process.env = this.previousEnv
+      },
+      beforeEach() {
+        this.previousEnv = process.env
+      },
+    },
     {
       transform: test =>
         function () {
