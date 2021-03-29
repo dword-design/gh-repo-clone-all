@@ -84,9 +84,9 @@ export default tester(
     },
     'gh missing': async () => {
       const self = proxyquire('.', {})
+      // https://github.com/nodejs/node/issues/34667
       process.env =
         { ...process.env, PATH: await getModifiedPath() } |> omit(['Path'])
-      console.log(JSON.stringify(Object.keys(process.env)))
       await expect(self()).rejects.toThrow(
         'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
       )
