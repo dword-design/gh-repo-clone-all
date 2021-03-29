@@ -1,6 +1,6 @@
 {
   "name": "gh-repo-clone-all",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Addition to GitHub CLI that clones all public and private repositories. It uses GitHub CLI and its authentication system and passes the filter options through to gh repo list.",
   "keywords": [
     "access",
