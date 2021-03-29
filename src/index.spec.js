@@ -1,4 +1,4 @@
-import { endent, property } from '@dword-design/functions'
+import { endent, omit, property } from '@dword-design/functions'
 import proxyquire from '@dword-design/proxyquire'
 import tester from '@dword-design/tester'
 import execa from 'execa'
@@ -86,7 +86,7 @@ export default tester(
       console.log(path)
       console.log(
         require('child_process').spawnSync('node', [require.resolve('./cli')], {
-          env: { ...process.env, FOO: 'bar', PATH: path },
+          env: { ...process.env, FOO: 'bar', PATH: path } |> omit(['Path']),
           stdio: 'inherit',
         })
       )
