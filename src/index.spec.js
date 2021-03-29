@@ -12,7 +12,7 @@ const getModifiedPath = async () => {
   const ghPath = await execa.command('which gh', { all: true }) |> await |> property('all')
   return process.env.PATH
   |> split(pathDelimiter)
-  |> pullAll([P.dirname(ghPath)])
+  |> pullAll([P.dirname(ghPath), '/bin'])
   |> join(pathDelimiter)
 }
 
