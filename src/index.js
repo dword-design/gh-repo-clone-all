@@ -14,10 +14,10 @@ export default async options => {
     ...options,
   }
   options.directory = P.resolve(options.directory || '.')
-  //if (process.platform === 'win32') {
+  // if (process.platform === 'win32') {
   console.log('In self:')
   console.log(process.env.PATH)
-  //}
+  // }
   try {
     await execa.command('gh version')
   } catch {
