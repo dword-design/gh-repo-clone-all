@@ -2,24 +2,27 @@
 
 import { slice } from '@dword-design/functions'
 import makeCli from 'make-cli'
-import parsePkgName from 'parse-pkg-name'
+import parsePackagejsonName from 'parse-packagejson-name'
 
 import packageConfig from '@/package.json'
 
 import api from '.'
 
-const packageName = parsePkgName(packageConfig.name).name
+const packageName = parsePackagejsonName(packageConfig.name).fullName
 makeCli({
-  action: (directory, options, command) =>
-    api({
-      directory,
-      ghArgs: directory ? command.args |> slice(1) : command.args,
-      quiet: false,
-      ...options,
-    }).catch(error => {
+  action: async (directory, options, command) => {
+    try {
+      await api({
+        directory,
+        ghArgs: directory ? command.args |> slice(1) : command.args,
+        quiet: false,
+        ...options,
+      })
+    } catch (error) {
       console.error(error.message)
       process.exit(1)
-    }),
+    }
+  },
   allowUnknownOption: true,
   arguments: '[directory]',
   name: `${packageName} [directory] [options] [gh repo list options]`,

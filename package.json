@@ -41,7 +41,7 @@
     "execa": "^5.0.0",
     "fs-extra": "^9.1.0",
     "make-cli": "^1.2.0",
-    "parse-pkg-name": "^2.0.0",
+    "parse-packagejson-name": "^1.0.1",
     "std-env": "^2.3.0"
   },
   "devDependencies": {
