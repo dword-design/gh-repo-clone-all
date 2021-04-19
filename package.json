@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@dword-design/base": "^7.10.7",
-    "@dword-design/proxyquire": "^1.0.8",
+    "@dword-design/proxyquire": "^1.0.9",
     "@dword-design/tester": "^1.2.3",
     "globby": "^11.0.3",
     "which": "^2.0.2",
