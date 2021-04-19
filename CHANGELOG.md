@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.6...v1.0.7) (2021-04-19)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#6](https://github.com/dword-design/gh-repo-clone-all/issues/6)) ([1c35a34](https://github.com/dword-design/gh-repo-clone-all/commit/1c35a34000003880da328f102ba0d5cd5c17e36e))
+
 ## [1.0.6](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.5...v1.0.6) (2021-04-12)
 
 
