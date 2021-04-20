@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.7...v1.0.8) (2021-04-20)
+
+
+### Bug Fixes
+
+* updated package.json[keywords] ([#12](https://github.com/dword-design/gh-repo-clone-all/issues/12)) ([388f7aa](https://github.com/dword-design/gh-repo-clone-all/commit/388f7aa499bbbf939c0ee4f7d56185412d83e17b))
+
 ## [1.0.7](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.6...v1.0.7) (2021-04-19)
 
 
