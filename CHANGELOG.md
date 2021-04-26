@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.8...v1.0.9) (2021-04-26)
+
+
+### Bug Fixes
+
+* update dependency with-local-tmp-dir to v3 ([#13](https://github.com/dword-design/gh-repo-clone-all/issues/13)) ([61174f6](https://github.com/dword-design/gh-repo-clone-all/commit/61174f659b389f0e0ed77e15f9850c89825ab7c0))
+
 ## [1.0.8](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.7...v1.0.8) (2021-04-20)
 
 
