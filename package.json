@@ -58,6 +58,9 @@
     "which": "^2.0.2",
     "with-local-tmp-dir": "^3.0.0"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "publishConfig": {
     "access": "public"
   },
