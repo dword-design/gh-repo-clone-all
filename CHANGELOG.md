@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.9...v2.0.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#17](https://github.com/dword-design/gh-repo-clone-all/issues/17)) ([f31bd0d](https://github.com/dword-design/gh-repo-clone-all/commit/f31bd0d1f80bd0829efee4f5cbbb0d2ee9de2ef2))
+
+
+### BREAKING CHANGES
+
+* require Node.js >= 12
+
+Co-authored-by: Renovate Bot <bot@renovateapp.com>
+Co-authored-by: Sebastian Landwehr <info@dword-design.de>
+Co-authored-by: GitHub Actions <actions@github.com>
+
 ## [1.0.9](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.8...v1.0.9) (2021-04-26)
 
 
