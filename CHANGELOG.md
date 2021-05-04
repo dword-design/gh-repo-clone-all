@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/dword-design/gh-repo-clone-all/compare/v2.0.0...v2.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/proxyquire to v2 ([#19](https://github.com/dword-design/gh-repo-clone-all/issues/19)) ([08eea0d](https://github.com/dword-design/gh-repo-clone-all/commit/08eea0ddf34e4478f35d129298431d4fbc020480))
+* update dependency make-cli to v2 ([#22](https://github.com/dword-design/gh-repo-clone-all/issues/22)) ([5cac418](https://github.com/dword-design/gh-repo-clone-all/commit/5cac4187d2109ce65a43e2a7361f33c88a5771ae))
+* update dependency with-local-tmp-dir to v4 ([#23](https://github.com/dword-design/gh-repo-clone-all/issues/23)) ([db0474b](https://github.com/dword-design/gh-repo-clone-all/commit/db0474b26f3d01cee3e35e0624327b5b6664907c))
+
 # [2.0.0](https://github.com/dword-design/gh-repo-clone-all/compare/v1.0.9...v2.0.0) (2021-05-03)
 
 
