@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/dword-design/gh-repo-clone-all/compare/v2.0.1...v2.0.2) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4 ([#18](https://github.com/dword-design/gh-repo-clone-all/issues/18)) ([119ac41](https://github.com/dword-design/gh-repo-clone-all/commit/119ac4150716a0de800899261ea13a8037b7a739))
+* update dependency @dword-design/tester to v2 ([#20](https://github.com/dword-design/gh-repo-clone-all/issues/20)) ([6806f6f](https://github.com/dword-design/gh-repo-clone-all/commit/6806f6fef4d0b9ae4de67dc1f3c686ba28c410c6))
+* update dependency fs-extra to v10 ([#21](https://github.com/dword-design/gh-repo-clone-all/issues/21)) ([af0bcd4](https://github.com/dword-design/gh-repo-clone-all/commit/af0bcd4fadcb7d60cd4b42194fb59f4e971c8aad))
+
 ## [2.0.1](https://github.com/dword-design/gh-repo-clone-all/compare/v2.0.0...v2.0.1) (2021-05-04)
 
 
