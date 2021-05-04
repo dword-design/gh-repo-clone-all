@@ -53,7 +53,7 @@
   "devDependencies": {
     "@dword-design/base": "^8.0.0",
     "@dword-design/proxyquire": "^2.0.0",
-    "@dword-design/tester": "^1.2.3",
+    "@dword-design/tester": "^2.0.0",
     "globby": "^11.0.3",
     "which": "^2.0.2",
     "with-local-tmp-dir": "^4.0.0"
