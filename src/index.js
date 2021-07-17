@@ -41,6 +41,10 @@ export default async options => {
   const protocol = await ghGitProtocol()
 
   const clone = async name => {
+    if (!options.quiet) {
+      console.log(`Cloning ${name} …`)
+    }
+
     // it is not possible to clone via gh repo clone because it makes api requests,
     // which lead to rate limiting issues.
     const url =
@@ -60,18 +64,9 @@ export default async options => {
 
       return error.message
     }
-    if (!options.quiet) {
-      console.log(`Successfully cloned ${name}.`)
-    }
 
     return undefined
   }
 
-  const result = repoNames |> map(clone) |> Promise.all |> await |> compact
-  if (!options.quiet) {
-    console.log()
-    console.log('Done!')
-  }
-
-  return result
+  return repoNames |> map(clone) |> Promise.all |> await |> compact
 }
