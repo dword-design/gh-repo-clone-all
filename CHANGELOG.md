@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/dword-design/gh-repo-clone-all/compare/v2.0.5...v2.0.6) (2021-07-17)
+
+
+### Bug Fixes
+
+* change console output ([f5aa262](https://github.com/dword-design/gh-repo-clone-all/commit/f5aa262ec4da9c10f3776b5f5dd6d1e981488cfd))
+
 ## [2.0.5](https://github.com/dword-design/gh-repo-clone-all/compare/v2.0.4...v2.0.5) (2021-07-06)
 
 
