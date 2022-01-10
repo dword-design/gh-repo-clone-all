@@ -3,7 +3,7 @@
 <!-- /TITLE -->
 
 <!-- BADGES/ -->
-<p>
+  <p>
     <a href="https://npmjs.org/package/gh-repo-clone-all">
       <img
         src="https://img.shields.io/npm/v/gh-repo-clone-all.svg"
