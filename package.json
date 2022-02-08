@@ -48,7 +48,7 @@
     "fs-extra": "^10.0.0",
     "make-cli": "^2.0.0",
     "parse-packagejson-name": "^1.0.1",
-    "std-env": "^2.3.0"
+    "std-env": "^3.0.0"
   },
   "devDependencies": {
     "@dword-design/base": "^8.0.0",
