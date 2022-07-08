@@ -78,7 +78,7 @@ You can pass the supported options through from gh repo list. The options below 
 
 Options:
   -b, --branch <branch>  The branch to checkout
-  -h, --help               display help for command
+  -h, --help             display help for command
 ```
 
 See the [gh repo list docs](https://cli.github.com/manual/gh_repo_list) for details about the filtering options.
