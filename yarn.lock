@@ -3703,10 +3703,10 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
-empty-dir@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/empty-dir/-/empty-dir-2.0.0.tgz#c59b4e73b9909d3c4bd49c1fbdaea52031fe22ac"
-  integrity sha512-XAedXlNAQZxMmbllXY9cxuESlNVjZ8xd67bSIUZwbS7VoLyhlNehVN3Iy35yDTGFHKR1opBRgORkp3am0so+WQ==
+empty-dir@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/empty-dir/-/empty-dir-3.0.0.tgz#abb2e5e26e197b40585b50aae3422d89a2304839"
+  integrity sha512-BVrc23tc2khY2AiAAaNsAlhSHBPdDU/gAMAYzA8QwBqqLpZ3PGedNNeatONxk4nYGuY852VlgSDrQxmjKHP/yw==
 
 encoding@^0.1.12:
   version "0.1.13"
