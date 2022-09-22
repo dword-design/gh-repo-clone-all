@@ -15,10 +15,10 @@ export default async options => {
   }
   options.directory = P.resolve(options.directory || '.')
   try {
-    await execa.command('gh version')
+    await execa.command('gh status')
   } catch {
     throw new Error(
-      'It seems like GitHub CLI is not installed on your machine. Install it at https://cli.github.com/manual.'
+      'You may need to install GitHub CLI (https://cli.github.com/manual) or login.'
     )
   }
 
