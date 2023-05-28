@@ -1395,12 +1395,11 @@
     proxyquire "^2.1.3"
 
 "@dword-design/tester@^2.0.0":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester/-/tester-2.0.11.tgz#a422b642c34e01bdb04c9ca873d84a3f00333c46"
-  integrity sha512-u79B7flY9nCHILIw7WF/M7mJw8VjGb3QKAjmh+ecxjiSi+LXuIOy4QXTxM18qNIKRTu3oJV8DEg6WMVp+fCdIg==
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester/-/tester-2.0.19.tgz#169d42a9b6fe925110a10e2e20a8168652c6ca01"
+  integrity sha512-dZGmY9YjxKNFiyWuAz0UA7AYledVlc4PZmRHK4WT45kYGT9KkWM67NPr0L7OiLITyYVGRV6igey/77FB1Rjc8A==
   dependencies:
     "@dword-design/functions" "^4.0.0"
-    promise-sequential "^1.1.1"
 
 "@endemolshinegroup/cosmiconfig-typescript-loader@^3.0.2":
   version "3.0.2"
@@ -7895,11 +7894,6 @@ promise-retry@^2.0.1:
   dependencies:
     err-code "^2.0.2"
     retry "^0.12.0"
-
-promise-sequential@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/promise-sequential/-/promise-sequential-1.1.1.tgz#f79e8950ef86e7a7a85bf320452643592f6d2fb2"
-  integrity sha1-956JUO+G56eoW/MgRSZDWS9tL7I=
 
 promzard@^0.3.0:
   version "0.3.0"
