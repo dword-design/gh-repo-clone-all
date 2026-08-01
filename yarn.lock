@@ -7647,9 +7647,9 @@ parse-json@^5.0.0:
     lines-and-columns "^1.1.6"
 
 parse-packagejson-name@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/parse-packagejson-name/-/parse-packagejson-name-1.0.1.tgz#ab5b322cd38c87b4a01620683cca56ad74c006a0"
-  integrity sha1-q1syLNOMh7SgFiBoPMpWrXTABqA=
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/parse-packagejson-name/-/parse-packagejson-name-1.1.1.tgz#c6cbb029233c4f07f34ed52282ac137595512d68"
+  integrity sha512-MBkHgxwvoN1nQ0r7ITjLoCGPdiIiJEsadjtvVNBa6qxEyNThymy+IJulsy0nFBcVsBHDPiDbIzBgk7OSO0BbJQ==
 
 parse-passwd@^1.0.0:
   version "1.0.0"
